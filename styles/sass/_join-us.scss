@@ -1,0 +1,145 @@
+.join-us {
+    @include flexbox(column);
+    width: 70%;
+
+    &__img {
+        display: block;
+        width: 20%;
+    }
+
+    &__title {
+        @include font($font-size: 37px, $font-weight: 500);
+        margin-top: 36px;
+        text-align: center;
+        cursor: default;
+    }
+
+    &__hello {
+        @include font($font-size: 20px, $font-weight: 500, $color: #979BAF);
+        margin: 17px 0 35px;
+        text-align: center;
+        cursor: default;
+    }
+
+    &__btn {
+        @include font($font-size: 16px, $font-weight: 500, $color:white);
+        display: block;
+        height: 60px;
+        width: 243px;
+        background-color: #5F74DD;
+        border: 2px solid #5F74DD;
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+        transition: 0.3s color, 0.3s background-color;
+        &:hover {
+            background-color: white;
+            color: #5F74DD;
+        }
+    }
+
+    /*media queries*/
+    @media(max-width: 1536px) and (orientation: landscape) {
+
+        &__title {
+            @include font($font-size: 35px, $font-weight: 500);
+        }
+    
+        &__hello {
+            @include font($font-size: 18px, $font-weight: 500, $color: #979BAF);
+        }
+
+        &__btn {
+            height: 50px;
+            width: 200px;
+        }
+    }
+
+    @media (max-width: 900px) and (orientation: landscape) {
+
+        &__img {
+            width: 30%;
+        }
+
+        &__title {
+            @include font($font-size: 33px, $font-weight: 500);
+            margin-top: 15px;
+        }
+    
+        &__hello {
+            @include font($font-size: 17px, $font-weight: 500, $color: #979BAF);
+            margin: 15px 0 25px;
+        }
+
+        &__btn {
+            @include font($font-size: 13px, $font-weight: 500, $color:white);
+            height: 54px;
+            width: 219px;
+        }
+    }
+
+    @media (max-width: 740px) and (orientation: landscape) {
+        width: 75%;
+        &__btn {
+            @include font($font-size: 13px, $font-weight: 500, $color:white);
+            height: 40px;
+            width: 180px;
+        }
+    }
+
+    @media (max-width: 667px) and (orientation: landscape) {
+        width: 70%;
+
+        &__title {
+            @include font($font-size: 26px, $font-weight: 500);
+            margin-top: 15px;
+        }
+    }
+
+    @media (orientation: portrait) {
+        margin-bottom: 10vh;
+        width: 90%;
+
+        &__img {
+            margin-top: 10vh;
+            width: 35%;
+        }
+    }
+
+    @media (orientation: portrait) and (max-width: 768px) {
+        &__hello {
+            margin: 15px 0 30px;
+        }
+    }
+
+    @media (orientation: portrait) and (max-width: 601px) {
+        &__title {
+            @include font($font-size: 33px, $font-weight: 500);
+        }
+
+        &__hello {
+            @include font($font-size: 17px, $font-weight: 500, $color: #979BAF);
+        }
+
+        &__btn {
+            @include font($font-size: 13px, $font-weight: 500, $color:white);
+            height: 54px;
+            width: 219px;
+        }
+    }
+
+    @media (orientation: portrait) and (max-width: 500px) {
+        
+        &__img {
+            margin-top: 15vh;
+            width: 75%;
+        }
+
+        &__first-sentence {
+            display: block;
+        }
+    }
+
+    
+
+}

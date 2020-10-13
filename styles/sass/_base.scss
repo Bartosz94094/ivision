@@ -1,0 +1,51 @@
+/*reset*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style: none;
+}
+
+/*basic block "main" - style*/
+
+.main {
+    @include flexbox($justify-content: center);
+    height: 92vh;
+
+    @media (width: 1366px) and (height:1024px), (max-width: 1280px) and (orientation: landscape) {
+        height: 100vh;
+    }
+
+    @media (orientation: portrait) {
+        @include flexbox($direction: column, $justify-content: center);
+        height: auto;
+    }
+
+}
+
+/*scrollbar - style*/
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track { 
+    background: #F2F3F7;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: #5F74DD;
+    -webkit-box-shadow: none; 
+}

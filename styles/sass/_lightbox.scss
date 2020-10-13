@@ -1,0 +1,152 @@
+.lightbox {
+    position: fixed;
+    z-index: 99999999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(95, 116, 221, 0.9);
+    display: none;
+
+    &--is-visible {
+        display: block;
+    }
+}
+
+.window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    height: 80%;
+    border-radius: 5px;
+    background-color: white;
+    padding-bottom: 30px;
+
+    &__header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        @include flexbox($justify-content: space-between);
+        padding: 30px;
+    }
+
+    &__title {
+        @include font($font-size: 24px, $font-weight: 500);
+    }
+
+    &__btn {
+        display: block;
+        border: none;
+        background-color: white;
+        outline: none;
+        cursor: pointer;
+        width: 13px;
+        height: 13px;
+        position: relative;
+        &::after, &::before {
+            content: "";
+            display: block;
+            width: 18px;
+            height: 2px;
+            background-color: #5F74DD;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+        &::after {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+        &::before {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+
+    &__list {
+        margin: 90px 15px 0px 30px;
+        display: block;
+        overflow: auto;
+        max-height: calc(100% - 90px);
+    }
+
+    &__job {
+        display: block;
+        padding: 22px 0;
+        margin-right: 20px;
+        border-top: 1px solid #DFDFDF;
+    }
+
+    &__job-title {
+        @include font($font-size: 16px, $font-weight: 500, $color: #5F74DD);
+    }
+
+    &__job-location {
+        @include font($font-size: 12px, $font-weight: 500, $color: #979BAF);
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        height: 80px;
+        background: linear-gradient(rgba(255, 255, 255, 0), white);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    &--hide-bottom-filter::after {
+        display: none;
+    }
+
+    @media (width: 1366px) and (height:1024px), (max-width: 1280px) and (orientation: landscape) {
+        height: 90%;
+        width: 80%;
+
+        &__btn {
+            width: 15px;
+            height: 15px;
+            &::after, &::before {
+                width: 21px;
+            }
+        }
+    }
+
+    @media (max-width: 900px) and (orientation: landscape) {
+        width: 70%;
+
+        &__title {
+            @include font($font-size: 27px, $font-weight: 500);
+        }
+
+        &__job-title {
+            @include font($font-size: 17px, $font-weight: 500, $color: #5F74DD);
+        }
+    
+        &__job-location {
+            @include font($font-size: 13px, $font-weight: 500, $color: #979BAF);
+        }
+    }
+
+    @media (orientation: portrait) {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+
+        &::after {
+            border-radius: 0;
+        }
+        
+        &__btn {
+            width: 15px;
+            height: 15px;
+            &::after, &::before {
+                width: 21px;
+            }
+        }
+    }
+}
