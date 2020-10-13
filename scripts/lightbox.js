@@ -17,9 +17,9 @@ openLightboxBtn.addEventListener("click", () => {
 const listOfJobsWindow = document.querySelector(".window");
 const listOfJobs = document.querySelector(".window__list");
 listOfJobs.addEventListener("scroll", () => {
-    if((listOfJobs.scrollHeight - listOfJobs.scrollTop - listOfJobs.clientHeight === 0) && !listOfJobsWindow.classList.contains("window--hide-bottom-filter")) {
+    if((listOfJobs.scrollHeight - listOfJobs.scrollTop - listOfJobs.clientHeight <= 10) && !listOfJobsWindow.classList.contains("window--hide-bottom-filter")) {
         listOfJobsWindow.classList.add("window--hide-bottom-filter");
-    } else if(listOfJobsWindow.classList.contains("window--hide-bottom-filter")) {
+    } else if((listOfJobs.scrollHeight - listOfJobs.scrollTop - listOfJobs.clientHeight > 10) &&listOfJobsWindow.classList.contains("window--hide-bottom-filter")) {
         listOfJobsWindow.classList.remove("window--hide-bottom-filter");
     }
 })
